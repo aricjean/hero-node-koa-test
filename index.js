@@ -22,16 +22,25 @@ client.connect(err => {
 
 });
 }
+async function test() {
+    return new Promise((resolve, reject) => {
+       setTimeout(() => {
+		   resolve("这是延时处理来的");
+	   }, 1000);
+	})
+}
 // 对于任何请求，app将调用该异步函数处理请求：
 app.use(async (ctx, next) => {
     await next();
     ctx.response.type = 'text/html';
     // ctx.response.body = '<h1>Hello, koa2!</h1>port: ' + port;
 	// mongo();
+	let data = await test();
+	ctx.response.body = data;
 	setTimeout(() => {
 		ctx.response.body = 'hello world';
 	}, 0);
-	ctx.response.body = 'hello world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
+ 	// ctx.response.body = 'hello world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
     // ctx.response.body = `
     //  <h1>Hello, koa2!</h1>
     //  <p>server started at port: ${port}</p>
