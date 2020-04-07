@@ -4,7 +4,7 @@ const Koa = require('koa');
 const app = new Koa();
 var port = process.env.PORT ? process.env.PORT : 12355;
 const MongoClient = require('mongodb').MongoClient;
-function mongo() {
+async function mongo() {
 return new Promise((resolve, reject) => {
 
 const uri = "mongodb+srv://admin:zxcasdqwe@cluster0-zvimr.mongodb.net/test?retryWrites=true&w=majority";
@@ -13,13 +13,9 @@ client.connect(err => {
   const collection = client.db("test").collection("devices");
   // perform actions on the collection object
   client.close();
-  ctx.response.body = `
-      <h1>Hello, koa2!</h1>
-      <p>server started at port: ${port}</p>
-      <p>mongodb connected successful!</p>
-	`;
+	reject("我是链接 mongo 失败时返回的！");
 });
-
+resolve("我是链接 mongo 成功后返回的！！！");
 });
 }
 async function test() {
@@ -35,7 +31,8 @@ app.use(async (ctx, next) => {
     ctx.response.type = 'text/html';
     // ctx.response.body = '<h1>Hello, koa2!</h1>port: ' + port;
 	// mongo();
-	let data = await test();
+	// let data = await test();
+	let data = await mongo();
 	ctx.response.body = data;
 	setTimeout(() => {
 		ctx.response.body = 'hello world';
