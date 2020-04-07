@@ -7,7 +7,7 @@ const MongoClient = require('mongodb').MongoClient;
 async function mongo() {
 return new Promise((resolve, reject) => {
 
-const uri = "mongodb+srv://admin:zxcasdqwe@cluster0-zvimr.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://admin:zxcasdqwe123@cluster0-zvimr.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
