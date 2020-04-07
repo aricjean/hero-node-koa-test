@@ -1,14 +1,15 @@
 const Koa = require('koa');
 
-// ´´½¨Ò»¸öKoa¶ÔÏó±íÊ¾web app±¾Éí:
+// åˆ›å»ºä¸€ä¸ªKoaå¯¹è±¡è¡¨ç¤ºweb appæœ¬èº«:
 const app = new Koa();
 
-// ¶ÔÓÚÈÎºÎÇëÇó£¬app½«µ÷ÓÃ¸ÃÒì²½º¯Êý´¦ÀíÇëÇó£º
+// å¯¹äºŽä»»ä½•è¯·æ±‚ï¼Œappå°†è°ƒç”¨è¯¥å¼‚æ­¥å‡½æ•°å¤„ç†è¯·æ±‚ï¼š
 app.use(async (ctx, next) => {
     await next();
     ctx.response.type = 'text/html';
     ctx.response.body = '<h1>Hello, koa2!</h1>port: ' + process.env.port;
 });
-app.listen(process.env.port ? process.env.port : 12355, () => {
-  console.log("server started at post:", process.env.port);
+var port = process.env.port ? process.env.port : 12355;
+app.listen(port, () => {
+  console.log("server started at port:", port);
 })
