@@ -31,6 +31,7 @@ app.use(async (ctx, next) => {
 	setTimeout(() => {
 		ctx.response.body = 'hello world';
 	}, 0);
+	ctx.response.body = 'hello world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
     // ctx.response.body = `
     //  <h1>Hello, koa2!</h1>
     //  <p>server started at port: ${port}</p>
