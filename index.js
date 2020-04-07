@@ -4,7 +4,7 @@ const Koa = require('koa');
 const app = new Koa();
 var port = process.env.PORT ? process.env.PORT : 12355;
 const MongoClient = require('mongodb').MongoClient;
-async function mongo() {
+function mongo() {
 return new Promise((resolve, reject) => {
 
 const uri = "mongodb+srv://admin:zxcasdqwe@cluster0-zvimr.mongodb.net/test?retryWrites=true&w=majority";
