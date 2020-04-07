@@ -9,7 +9,7 @@ app.use(async (ctx, next) => {
     ctx.response.type = 'text/html';
     ctx.response.body = '<h1>Hello, koa2!</h1>port: ' + process.env.port;
 });
-var port = process.env.port ? process.env.port : 12355;
+var port = process.env.PORT ? process.env.PORT : 12355;
 app.listen(port, () => {
   console.log("server started at port:", port);
 })
