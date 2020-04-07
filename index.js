@@ -10,6 +10,9 @@ app.use(async (ctx, next) => {
     // ctx.response.body = '<h1>Hello, koa2!</h1>port: ' + port;
     ctx.response.body = `
       <h1>Hello, koa2!</h1>
+      <h1>Hello, koa2!</h1>
+      <h1>Hello, koa2!</h1>
+      <h1>Hello, koa2!</h1>
       <p>server started at port: ${port}</p>
     `;
 });
